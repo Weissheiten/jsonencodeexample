@@ -64,10 +64,10 @@ class Actor implements \JsonSerializable
      *
      * Creates a new actor
      */
-    public function __construct(string $name, array $movies, float $networth = 0){
+    public function __construct(string $name, array $movies, float $networth = NULL){
         $this->name = $name;
         $this->movies = $movies;
-        $this->networth = $networth;
+        $this->networth = (is_null($networth)) ? 0 : $networth;
     }
 
     /**
