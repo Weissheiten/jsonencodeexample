@@ -31,6 +31,22 @@ class Actor implements \JsonSerializable
     private $height;
 
     /**
+     * @return float
+     */
+    public function getHeight(): float
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param float $height
+     */
+    public function setHeight(float $height)
+    {
+        $this->height = $height;
+    }
+
+    /**
      * @param float $networth
      */
     public function setNetworth($networth)
@@ -88,7 +104,8 @@ class Actor implements \JsonSerializable
         $rv = [
             'name' => $this->name,
             'movies' => $this->getMovies(),
-            'networth' => $this->networth
+            'networth' => $this->networth,
+            'height' => $this->height
         ];
         return $rv;
     }
