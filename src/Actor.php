@@ -24,7 +24,10 @@ class Actor implements \JsonSerializable
      * @var float net worth of the actor/actress for publication in forbes
      */
     private $networth = 0;
-
+    /**
+     * @var int total amount of oscars earned by actor
+     */
+    private $oscars = 0;
     /**
      * @param float $networth
      */
@@ -56,6 +59,21 @@ class Actor implements \JsonSerializable
     {
         return $this->movies;
     }
+    /**
+     * @return int
+     */
+    public function getOscars()
+    {
+        return $this->oscars;
+    }
+
+    /**
+     * @param int $oscars
+     */
+    public function setOscars($oscars)
+    {
+        $this->oscars = $oscars;
+    }
 
     /**
      * Actor constructor.
@@ -64,10 +82,11 @@ class Actor implements \JsonSerializable
      *
      * Creates a new actor
      */
-    public function __construct(string $name, array $movies, float $networth = NULL){
+    public function __construct(string $name, array $movies, float $networth = NULL, int $oscars = NULL){
         $this->name = $name;
         $this->movies = $movies;
         $this->networth = (is_null($networth)) ? 0 : $networth;
+        $this->oscars = (is_null($oscars)) ? 0 : $oscars;
     }
 
     /**
@@ -82,7 +101,8 @@ class Actor implements \JsonSerializable
         $rv = [
             'name' => $this->name,
             'movies' => $this->getMovies(),
-            'networth' => $this->networth
+            'networth' => $this->networth,
+            'oscars' => $this->oscars
         ];
         return $rv;
     }
