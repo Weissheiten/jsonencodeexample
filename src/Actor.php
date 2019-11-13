@@ -26,6 +26,27 @@ class Actor implements \JsonSerializable
     private $networth = 0;
 
     /**
+     * @var float unimportant attribute of an individual actor in centimeters
+     */
+    private $height;
+
+    /**
+     * @return float
+     */
+    public function getHeight(): float
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param float $height
+     */
+    public function setHeight(float $height)
+    {
+        $this->height = $height;
+    }
+
+    /**
      * @param float $networth
      */
     public function setNetworth($networth)
@@ -64,10 +85,11 @@ class Actor implements \JsonSerializable
      *
      * Creates a new actor
      */
-    public function __construct(string $name, array $movies, float $networth = NULL){
+    public function __construct(string $name, array $movies, float $networth = NULL, float $height = NULL){
         $this->name = $name;
         $this->movies = $movies;
         $this->networth = (is_null($networth)) ? 0 : $networth;
+        $this->height = (is_null($height)) ? 0 : $height;
     }
 
     /**
@@ -82,7 +104,8 @@ class Actor implements \JsonSerializable
         $rv = [
             'name' => $this->name,
             'movies' => $this->getMovies(),
-            'networth' => $this->networth
+            'networth' => $this->networth,
+            'height' => $this->height
         ];
         return $rv;
     }
