@@ -1,0 +1,16 @@
+{
+    "name": "weissheiten/jsonencodeexample",
+    "description": "Provides an actor class to be used in own projects",
+    "type": "library",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Florian Weiss",
+            "email": "github@weissheiten.at"
+        }
+    ],
+	"autoload": {
+        "psr-4": {"HTL3R\\Jsonexample\\": "src/"}
+    },
+    "require": {}
+}
